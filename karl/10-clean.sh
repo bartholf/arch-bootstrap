@@ -1,19 +1,25 @@
 #!/bin/bash
+
+###
+# sda1 EF00 EFI
+# sda2 8200 Linux Swap
+# sda3 8300 /
+###
+
 loadkeys sv-latin1
 
 echo "Initializing disks"
 mkfs.vfat -F32 -I /dev/sda1
 
 echo "Formatting /"
-mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
+
+mkswap /dev/sda2
+swapon /dev/sda2
 
 echo "Mount disks"
-mount /dev/sda2 /mnt
-mkdir -p /mnt/{home,var,boot}
-mkdir -p /mnt/opt/storage
+mount /dev/sda3 /mnt
 mount /dev/sda1 /mnt/boot
-mount /dev/sdc1 /mnt/home
-mount /dev/sdb1 /mnt/opt/storage
 
 echo "Server = http://ftp.lysator.liu.se/pub/archlinux/\$repo/os/\$arch
 Server = http://ftp.availo.se/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
@@ -31,4 +37,4 @@ arch-chroot /mnt /install/20-chroot.sh
 
 mkdir -p /mnt/etc/skel/{Downloads,Documents,Pictures}
 
-umount /mnt/{home,boot,}
+umount /mnt{/boot}

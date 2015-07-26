@@ -3,7 +3,7 @@ echo "sv_SE.UTF-8 UTF-8
 en_US.UTF-8 UTF-8" > /etc/locale.gen
 echo 'LANG=sv_SE.UTF-8' > /etc/locale.conf
 echo 'KEYMAP=sv-latin1' > /etc/vconsole.conf
-echo 'fatman' > /etc/hostname
+echo 'karl' > /etc/hostname
 
 locale-gen
 export LANG=sv_SE.UTF-8
@@ -16,14 +16,14 @@ pacman --noconfirm -S bash-completion
 pacman --noconfirm -S intel-ucode
 
 # Setup EFI Stub
-pacman -S dosfstools
+pacman --noconfirm -S dosfstools
 bootctl --path=/boot install
 
 echo "title     Arch Linux
 linux           /vmlinuz-linux
 initrd          /intel-ucode.img
 initrd          /initramfs-linux.img
-options         root=/dev/sda2 rw quiet" > /boot/loader/entries/arch.conf
+options         root=/dev/sda3 rw quiet" > /boot/loader/entries/arch.conf
 
 echo "timeout 3
 default arch"  > /boot/loader/loader.conf
