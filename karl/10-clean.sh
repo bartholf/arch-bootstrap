@@ -19,6 +19,7 @@ swapon /dev/sda2
 
 echo "Mount disks"
 mount /dev/sda3 /mnt
+mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
 echo "Server = http://ftp.lysator.liu.se/pub/archlinux/\$repo/os/\$arch
