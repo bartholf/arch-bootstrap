@@ -34,7 +34,7 @@ nano /mnt/etc/makepkg.conf
 mkdir -p /mnt/install
 
 cp ./*.sh /mnt/install
-arch-chroot /mnt /install/20-chroot.sh -r sda3 -u kalle
+arch-chroot /mnt /install/20-chroot.sh -r sda3 -h kalle
 
 mkdir -p /mnt/etc/skel/{Downloads,Documents,Pictures}
 
