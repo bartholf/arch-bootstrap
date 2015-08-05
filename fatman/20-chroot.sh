@@ -12,11 +12,9 @@ hwclock --systohc --utc
 
 mkinitcpio -p linux
 
-pacman --noconfirm -S bash-completion
-pacman --noconfirm -S intel-ucode
+pacman --noconfirm -S dosfstools intel-ucode bash-completion net-tools openssh
 
 # Setup EFI Stub
-pacman -S dosfstools
 bootctl --path=/boot install
 
 echo "title     Arch Linux

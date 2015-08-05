@@ -13,7 +13,6 @@ hwclock --systohc --utc
 mkinitcpio -p linux
 
 pacman --noconfirm -S dosfstools intel-ucode bash-completion net-tools openssh
-# systemctl enable openssh
 
 # Setup EFI Stub
 bootctl --path=/boot install
