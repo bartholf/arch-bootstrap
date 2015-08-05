@@ -21,8 +21,15 @@ pacman -R --noconfirm mousepad
 pacman -S --noconfirm gedit
 pacman -S --noconfirm firefox flashplugin
 
+sudo pacman -S virtualbox-guest-utils virtualbox-guest-modules virtualbox-guest-dkms
+
+systemctl enable vboxservice.service
 systemctl enable NetworkManager.service
 systemctl enable dkms.service
+
+echo "vboxguest
+vboxsf
+vboxvideo" > /etc/modules-load.d/virtualbox.conf
 
 useradd -m -G wheel,vboxusers,storage,lp,power -s /bin/bash rib
 echo "Password for rib"
@@ -31,7 +38,10 @@ passwd rib
 visudo
 
 echo "vboxdrv
-vboxnetflt" > /etc/modules-load.d/virtualbox.conf
+vboxnetflt
+vboxguest
+vboxsf
+vboxvideo" > /etc/modules-load.d/virtualbox.conf
 
 #pacman -S --noconfirm gstreamer0.10-good-plugins gstreamer0.10-bad-plugins gstreamer0.10-ugly-plugins gstreamer0.10-ffmpeg
 #yaourt -S --noconfirm xfce-theme-greybird-git adduser

@@ -26,9 +26,12 @@ nano /mnt/etc/makepkg.conf
 
 mkdir -p /mnt/install
 
-cp ./20-chroot.sh /mnt/install
+cp ./*.sh /mnt/install
 arch-chroot /mnt /install/20-chroot.sh
 
 mkdir -p /mnt/etc/skel/{Downloads,Documents,Pictures}
 
-umount /mnt/{home,boot,}
+# Temporary workaround for AUR moving to git
+echo 'alias yaourt="yaourt --aur-url https://aur4.archlinux.org"' > /mnt/etc/skel/.bashrc
+
+umount -R /mnt
