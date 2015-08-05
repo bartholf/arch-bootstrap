@@ -20,6 +20,7 @@ pacman -S --noconfirm ttf-inconsolata ttf-ubuntu-font-family ttf-droid
 pacman -R --noconfirm mousepad
 pacman -S --noconfirm gedit
 pacman -S --noconfirm firefox flashplugin
+pacman -S --noconfirm lightdm-gtk-greeter
 
 # http://www.cs.columbia.edu/~jae/4118/arch-setup-2015-1.html
 sudo pacman -S virtualbox-guest-utils virtualbox-guest-modules virtualbox-guest-dkms
@@ -27,6 +28,9 @@ sudo pacman -S virtualbox-guest-utils virtualbox-guest-modules virtualbox-guest-
 systemctl enable vboxservice.service
 systemctl enable NetworkManager.service
 systemctl enable dkms.service
+
+### Do not enable lightdm by default
+# systemctl enable lightdm.service
 
 echo "vboxguest
 vboxsf
