@@ -33,7 +33,9 @@ nano /mnt/etc/makepkg.conf
 
 mkdir -p /mnt/install
 
-echo "git clone https://github.com/bartholf/arch-bootstrap.git" > /mnt/install/readme.txt
+echo "#!/bin/sh
+git clone https://github.com/bartholf/arch-bootstrap.git" > /mnt/install/clone.sh
+chmod 744 /mnt/install/*.sh
 
 cp ../common/chroot.sh /mnt/install
 arch-chroot /mnt /install/chroot.sh -r sda3 -h kalle
