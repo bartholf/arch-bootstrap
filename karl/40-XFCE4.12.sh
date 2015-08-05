@@ -21,6 +21,7 @@ pacman -R --noconfirm mousepad
 pacman -S --noconfirm gedit
 pacman -S --noconfirm firefox flashplugin
 
+# http://www.cs.columbia.edu/~jae/4118/arch-setup-2015-1.html
 sudo pacman -S virtualbox-guest-utils virtualbox-guest-modules virtualbox-guest-dkms
 
 systemctl enable vboxservice.service
