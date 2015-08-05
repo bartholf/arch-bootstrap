@@ -38,4 +38,4 @@ arch-chroot /mnt /install/20-chroot.sh
 
 mkdir -p /mnt/etc/skel/{Downloads,Documents,Pictures}
 
-umount /mnt{/boot}
+umount -R /mnt
