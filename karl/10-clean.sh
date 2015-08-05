@@ -33,7 +33,7 @@ nano /mnt/etc/makepkg.conf
 
 mkdir -p /mnt/install
 
-cp ./20-chroot.sh /mnt/install
+cp ./*.sh /mnt/install
 arch-chroot /mnt /install/20-chroot.sh
 
 mkdir -p /mnt/etc/skel/{Downloads,Documents,Pictures}
