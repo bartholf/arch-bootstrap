@@ -31,7 +31,4 @@ arch-chroot /mnt /install/20-chroot.sh
 
 mkdir -p /mnt/etc/skel/{Downloads,Documents,Pictures}
 
-# Temporary workaround for AUR moving to git
-echo 'alias yaourt="yaourt --aur-url https://aur4.archlinux.org"' > /mnt/etc/skel/.bashrc
-
 umount -R /mnt
