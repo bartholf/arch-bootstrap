@@ -7,7 +7,7 @@ Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
 pacman -Syu
 pacman -S --noconfirm yaourt
 pacman -S --noconfirm nvidia pangox-compat
-pacman -S --noconfirm xf86-video-intel
+#pacman -S --noconfirm xf86-video-intel
 pacman -S --noconfirm xorg-server xorg-xinit xorg-server-utils
 pacman -S --noconfirm xfce4 xfce4-goodies
 pacman -S --noconfirm sudo ttf-dejavu networkmanager network-manager-applet
@@ -19,7 +19,7 @@ pacman -S --noconfirm virtualbox virtualbox-host-modules virtualbox-host-dkms
 pacman -S --noconfirm ttf-inconsolata ttf-ubuntu-font-family ttf-droid
 pacman -R --noconfirm mousepad
 pacman -S --noconfirm gedit
-pacman -S --noconfirm firefox flashplugin
+#pacman -S --noconfirm firefox flashplugin
 
 systemctl enable NetworkManager.service
 systemctl enable dkms.service
